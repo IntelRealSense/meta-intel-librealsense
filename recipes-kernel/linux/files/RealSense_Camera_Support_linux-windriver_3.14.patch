@@ -1,6 +1,6 @@
-From f2a3bd64a4a3f354dfbe28baa88b87ca48ed53cd Mon Sep 17 00:00:00 2001
+From 4b1c94c5e207fac95176dd96a8f160e936ebb353 Mon Sep 17 00:00:00 2001
 From: Scott Ware <scott.r.ware@intel.com>
-Date: Tue, 5 Jan 2016 12:38:10 +0000
+Date: Thu, 7 Jan 2016 11:11:32 +0000
 Subject: [PATCH] Add support for RealSense cameras.
 
 ---
@@ -10,7 +10,7 @@ Subject: [PATCH] Add support for RealSense cameras.
  3 files changed, 102 insertions(+)
 
 diff --git a/drivers/media/usb/uvc/uvc_driver.c b/drivers/media/usb/uvc/uvc_driver.c
-index 6a4b0b8..8d9ad5c 100644
+index 4531441..3a47243 100644
 --- a/drivers/media/usb/uvc/uvc_driver.c
 +++ b/drivers/media/usb/uvc/uvc_driver.c
 @@ -108,6 +108,61 @@ static struct uvc_format_desc uvc_fmts[] = {
@@ -72,11 +72,11 @@ index 6a4b0b8..8d9ad5c 100644
 +		.fcc		= V4L2_PIX_FMT_SRGGB10P,
 +	},
 +	{
- 		.name		= "BGGR Bayer (BY8 )",
+ 		.name		= "RGB Bayer",
  		.guid		= UVC_GUID_FORMAT_BY8,
  		.fcc		= V4L2_PIX_FMT_SBGGR8,
 diff --git a/drivers/media/usb/uvc/uvcvideo.h b/drivers/media/usb/uvc/uvcvideo.h
-index f0a04b5..315d3fb 100644
+index 9e35982..d1b9eef 100644
 --- a/drivers/media/usb/uvc/uvcvideo.h
 +++ b/drivers/media/usb/uvc/uvcvideo.h
 @@ -91,6 +91,36 @@
@@ -117,10 +117,10 @@ index f0a04b5..315d3fb 100644
  	{ 'B',  'Y',  '8',  ' ', 0x00, 0x00, 0x10, 0x00, \
  	 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71}
 diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index d279c1b..29d9fd1 100644
+index 8d6646e..5fe779e 100644
 --- a/include/uapi/linux/videodev2.h
 +++ b/include/uapi/linux/videodev2.h
-@@ -477,6 +477,11 @@ struct v4l2_pix_format {
+@@ -390,6 +390,11 @@ struct v4l2_pix_format {
  #define V4L2_PIX_FMT_SGBRG10DPCM8 v4l2_fourcc('b', 'G', 'A', '8')
  #define V4L2_PIX_FMT_SGRBG10DPCM8 v4l2_fourcc('B', 'D', '1', '0')
  #define V4L2_PIX_FMT_SRGGB10DPCM8 v4l2_fourcc('b', 'R', 'A', '8')
@@ -132,7 +132,7 @@ index d279c1b..29d9fd1 100644
  	/*
  	 * 10bit raw bayer, expanded to 16 bits
  	 * xxxxrrrrrrrrrrxxxxgggggggggg xxxxggggggggggxxxxbbbbbbbbbb...
-@@ -500,6 +505,18 @@ struct v4l2_pix_format {
+@@ -413,6 +418,18 @@ struct v4l2_pix_format {
  #define V4L2_PIX_FMT_VC1_ANNEX_L v4l2_fourcc('V', 'C', '1', 'L') /* SMPTE 421M Annex L compliant stream */
  #define V4L2_PIX_FMT_VP8      v4l2_fourcc('V', 'P', '8', '0') /* VP8 */
  
