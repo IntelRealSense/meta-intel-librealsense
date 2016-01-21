@@ -1,4 +1,4 @@
-# librealsense Yocto Layer
+# Yocto Layer for librealsense
 
 This layer adds the packages necessary for adding support for Intel® RealSense™ cameras via [librealsense](https://github.com/IntelRealSense/librealsense) to your Yocto distribution.
 
