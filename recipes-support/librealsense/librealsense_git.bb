@@ -2,8 +2,8 @@ SUMMARY = "A cross-platform library for capturing data from the RealSense F200, 
 SECTION = "libs"
 AUTHOR = "Scott Ware"
 
-LICENSE = "Intel-Pre-Release-Evaluation-License"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=a16cc3e4b42b4fc9533adf83759cfaa9"
+LICENSE = "LICENSE"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=E3C3CB4D897DF0AED5D13BA0D41612AB"
 
 DEPENDS = "libpng libusb1 libglu glfw"
 RDEPENDS_${PN} = "bash"
