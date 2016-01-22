@@ -10,9 +10,6 @@ This layer depends on the following layers (this is already included with Wind R
 
 meta-openembedded: http://cgit.openembedded.org/meta-openembedded/
 
-For authentication the recipes in this layer rely on SSH.
-You MUST have been granted permission to access the 'librealsense' repository and have the relevant SSH keys setup in github (see here for details: https://help.github.com/articles/generating-ssh-keys/#step-4-add-your-ssh-key-to-your-account)
-
 ## How To Build (Yocto)
 
 Checkout the branch which corresponds with your version of Yocto (e.g. fido)
@@ -39,4 +36,4 @@ Include the following in your configure command:
 
 ## License
 
-This project is Copyright (C) 2015 Intel Corporation. Please the LICENSE file in the `custom-licenses\` folder.
+This project is Copyright (C) 2015 Intel Corporation. Please see the LICENSE file for more information.
