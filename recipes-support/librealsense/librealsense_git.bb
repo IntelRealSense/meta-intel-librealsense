@@ -3,7 +3,7 @@ SECTION = "libs"
 AUTHOR = "Scott Ware"
 
 LICENSE = "LICENSE"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=E3C3CB4D897DF0AED5D13BA0D41612AB"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS = "libpng libusb1 libglu glfw"
 RDEPENDS_${PN} = "bash"
