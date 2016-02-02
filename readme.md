@@ -4,7 +4,7 @@ This layer adds the packages necessary for adding support for IntelÂ® RealSenseâ
 
 ## How To Use This Layer
 
-The layer has been tested with Yocto Poky 1.8 (fido) and Wind River IDP 3.X.
+The layer has been tested with Yocto Poky 1.8 (fido), 2.0 (Jethro) and Wind River IDP 3.X.
 
 This layer depends on the following layers (this is already included with Wind River Linux):
 
