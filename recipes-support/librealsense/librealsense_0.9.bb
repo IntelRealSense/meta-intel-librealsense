@@ -40,15 +40,11 @@ do_install () {
 
 	install -d "${D}${sysconfdir}/udev/rules.d"
 	install -m 0644 ${S}/config/99-realsense-libusb.rules ${D}${sysconfdir}/udev/rules.d
-
-	install -d "${D}${prefix}/local/bin"
-	install -m 755 ${S}/config/usb-R200-in ${D}${prefix}/local/bin
-	install -m 755 ${S}/config/usb-R200-in_udev ${D}${prefix}/local/bin
 }
 
 PACKAGES = "${PN} ${PN}-dbg ${PN}-dev ${PN}-examples ${PN}-graphical-examples"
 
-FILES_${PN} = "${libdir}/* ${sysconfdir}/udev/rules.d/* ${prefix}/local/bin/*"
+FILES_${PN} = "${libdir}/* ${sysconfdir}/udev/rules.d/*"
 FILES_${PN}-dev += "${includedir}/${PN}"
 FILES_${PN}-examples += "\
 	${bindir}/cpp-enumerate-devices \
