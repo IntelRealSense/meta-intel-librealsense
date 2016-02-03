@@ -1,0 +1,35 @@
+From 576fe80de29a0562f8ad234b186e1f4228012ed3 Mon Sep 17 00:00:00 2001
+From: Scott Ware <scott.r.ware@intel.com>
+Date: Wed, 3 Feb 2016 09:48:29 +0000
+Subject: [PATCH] UVC: Remove extra commit on resume.
+
+---
+ drivers/media/usb/uvc/uvc_video.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/media/usb/uvc/uvc_video.c b/drivers/media/usb/uvc/uvc_video.c
+index 2ef5b0f8..48f2dc8 100644
+--- a/drivers/media/usb/uvc/uvc_video.c
++++ b/drivers/media/usb/uvc/uvc_video.c
+@@ -1715,15 +1715,15 @@ int uvc_video_resume(struct uvc_streaming *stream, int reset)
+ 
+ 	uvc_video_clock_reset(stream);
+ 
++	if (!uvc_queue_streaming(&stream->queue))
++		return 0;
++
+ 	ret = uvc_commit_video(stream, &stream->ctrl);
+ 	if (ret < 0) {
+ 		uvc_queue_enable(&stream->queue, 0);
+ 		return ret;
+ 	}
+ 
+-	if (!uvc_queue_streaming(&stream->queue))
+-		return 0;
+-
+ 	ret = uvc_init_video(stream, GFP_NOIO);
+ 	if (ret < 0)
+ 		uvc_queue_enable(&stream->queue, 0);
+-- 
+1.9.1
+
