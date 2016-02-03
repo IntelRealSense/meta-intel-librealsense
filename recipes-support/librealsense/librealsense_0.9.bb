@@ -20,7 +20,10 @@ inherit pkgconfig
 
 S = "${WORKDIR}/${PN}-${PV}"
 
+BACKEND ?= "V4L2"
+
 EXTRA_OEMAKE = "\
+    'BACKEND=${BACKEND}' \
     'CC=${CC}' \
     'CXX=${CXX}' \
     'CFLAGS=${CFLAGS} -std=c11 -fPIC -pedantic -DRS_USE_$(BACKEND)_BACKEND $(LIBUSB_FLAGS)' \
@@ -40,11 +43,14 @@ do_install () {
 
 	install -d "${D}${sysconfdir}/udev/rules.d"
 	install -m 0644 ${S}/config/99-realsense-libusb.rules ${D}${sysconfdir}/udev/rules.d
+
+	install -d "${D}${sysconfdir}/modprobe.d"
+	install -m 0644 ${S}/config/uvc.conf ${D}${sysconfdir}/modprobe.d
 }
 
 PACKAGES = "${PN} ${PN}-dbg ${PN}-dev ${PN}-examples ${PN}-graphical-examples"
 
-FILES_${PN} = "${libdir}/* ${sysconfdir}/udev/rules.d/*"
+FILES_${PN} = "${libdir}/* ${sysconfdir}/udev/rules.d/* ${sysconfdir}/modprobe.d/*"
 FILES_${PN}-dev += "${includedir}/${PN}"
 FILES_${PN}-examples += "\
 	${bindir}/cpp-enumerate-devices \
