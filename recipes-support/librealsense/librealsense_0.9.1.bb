@@ -1,6 +1,5 @@
 SUMMARY = "A cross-platform library for capturing data from the RealSense F200, SR300 and R200 cameras"
 SECTION = "libs"
-AUTHOR = "Scott Ware"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
@@ -11,8 +10,8 @@ RDEPENDS_${PN}-examples = "librealsense"
 RDEPENDS_${PN}-graphical-examples = "libgl-mesa librealsense"
 
 SRC_URI = "https://github.com/IntelRealSense/librealsense/archive/v${PV}.tar.gz"
-SRC_URI[md5sum] = "8b30a944b51a9ff3fa00f2d1652ae9d9"
-SRC_URI[sha256sum] = "085b67417c388c0061d2175d9a8a237f65913405cddd38a358fdf1fa9f12b858"
+SRC_URI[md5sum] = "f2f2bad22f3cffb8f1bb3f509a90f3fb"
+SRC_URI[sha256sum] = "f6f45f5134834ccd1549ea9da897973ca8ac47d9a773604768458e6f3f6d2c0a"
 
 PR = "r0"
 

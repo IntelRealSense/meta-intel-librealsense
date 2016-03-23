@@ -1,6 +1,5 @@
 SUMMARY = "A cross-platform library for capturing data from the RealSense F200, SR300 and R200 cameras"
 SECTION = "libs"
-AUTHOR = "Scott Ware"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
