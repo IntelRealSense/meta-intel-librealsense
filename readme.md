@@ -1,39 +1,61 @@
-# Yocto Layer for librealsense
-
+Yocto Layer for librealsense
+============================
 This layer adds the packages necessary for adding support for Intel® RealSense™ cameras via [librealsense](https://github.com/IntelRealSense/librealsense) to your Yocto distribution.
 
-## How To Use This Layer
+## Supported Branches
+* Yocto Poky 1.8 (fido)
+* Yocto Poky 2.0 (Jethro)
+* Wind River IDP 3.X
+* Ostro™ OS 1.0.0
 
-The layer has been tested with Yocto Poky 1.8 (fido) and Wind River IDP 3.X.
+## Dependencies
+This layer depends on packages provided by the following layers:
+* `meta-openembedded` [http://cgit.openembedded.org/meta-openembedded/]
 
-This layer depends on the following layers (this is already included with Wind River Linux):
+Usage
+=====
+### Yocto Poky
+1. Checkout the branch which corresponds with your version of Yocto (e.g. `fido`)
+2. Add the `meta-intel-realsense` layer to `conf/bblayers.conf` in your `build` directory
+```bitbake
+	BBLAYERS += "path/to/meta-intel-realsense"
+```
+3. Add dependency layers to `conf/bblayers.conf` in your `build` directory
+```bitbake
+	BBLAYERS += "path/to/meta-openembedded/meta-oe"
+```
+4. Create a new `conf/auto.conf` file in your `build` directory with the following contents
+```bitbake
+    require include/intel-librealsense.inc
+```
+5. If you are building an image with a graphical desktop you can add the following to `conf/auto.conf`
+```bitbake
+    CORE_IMAGE_EXTRA_INSTALL += "librealsense-graphical-examples"
+```
 
-meta-openembedded: http://cgit.openembedded.org/meta-openembedded/
+### Wind River IDP
+1. Checkout the branch which corresponds to your version of Wind River IDP (e.g. `idp_3.x`)
+2. Include the following in your project configure command
+```bitbake
+    --with-layer=/path/to/meta-intel-librealsense
+    --with-package=librealsense,librealsense-examples
+```
 
-## How To Build (Yocto)
+### Ostro OS
+1. Checkout the `ostro` branch to your project directory
+2. Add the `meta-intel-realsense` layer to `conf/bblayers.conf` in your `build` directory
+```bitbake
+	OSTRO_LAYERS += "path/to/meta-intel-realsense"
+```
+3. Create a new `conf/auto.conf` file in your `build` directory with the following contents
+```bitbake
+    require include/intel-librealsense.inc
+```
+4. If you are building an image with a graphical desktop you can add the following to `conf/auto.conf`
+```bitbake
+    CORE_IMAGE_EXTRA_INSTALL += "librealsense-graphical-examples"
+```
 
-Checkout the branch which corresponds with your version of Yocto (e.g. fido)
-
-Add the following lines to your bblayers.conf file in 'build/conf':
-
-BBLAYERS += "/PATH/TO/LAYERS/meta-intel-librealsense"
-BBLAYERS += "/PATH/TO/LAYERS/meta-openembedded/meta-oe"
-
-Add the following to the end of your local.conf file in 'build/conf'
-
-require include/intel-librealsense.inc
-
-The layer does not require a desktop environment however in order to use the example applications it is recommended to include one (e.g. core-image-sato).
-
-## How To Build (Wind River)
-
-Checkout the branch which corresponds with your version of Wind River (e.g. idp_3.x)
-
-Include the following in your configure command:
-
---with-layer=/PATH/TO/LAYERS/meta-intel-librealsense
---with-package=librealsense,librealsense-examples
-
-## License
-
+License
+=======
 This project is Copyright (C) 2015 Intel Corporation. Please see the LICENSE file for more information.
