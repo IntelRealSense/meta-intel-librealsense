@@ -5,6 +5,7 @@ This layer adds the packages necessary for adding support for Intel® RealSense�
 ## Supported Branches
 * Yocto Poky 1.8 (fido)
 * Yocto Poky 2.0 (Jethro)
+* Yocto Poky 2.1 (Krogoth)
 * Wind River IDP 3.X
 * Ostro™ OS 1.0.0
 
