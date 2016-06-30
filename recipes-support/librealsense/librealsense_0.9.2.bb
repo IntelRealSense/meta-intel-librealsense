@@ -1,8 +1,8 @@
 require librealsense.inc
 
 SRC_URI = "https://github.com/IntelRealSense/librealsense/archive/v${PV}.tar.gz"
-SRC_URI[md5sum] = "4d41105e56b02a59fff944cd6e41dc2c"
-SRC_URI[sha256sum] = "c4682aa8ba4e55f09d8f7fcb7745e1b0ec95124811c4bea9ded1348193480ec4"
+SRC_URI[md5sum] = "8968c0cf709bd92e0c05b434f3580b5d"
+SRC_URI[sha256sum] = "86df7c1aea864fef964804effd9d08733be66283e6b69152538f0d143b4dda07"
 
 PR = "r0"
 
