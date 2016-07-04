@@ -1,0 +1,2 @@
+# RealSense camera autosuspend rules
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="8086", ATTR{idProduct}=="0a80", TEST=="power/control", ATTR{power/control}="on"
