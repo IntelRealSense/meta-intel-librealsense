@@ -1,12 +1,11 @@
 require librealsense.inc
 
-SRC_URI = "https://github.com/IntelRealSense/librealsense/archive/v${PV}.tar.gz"
-SRC_URI[md5sum] = "5cc0b759f9936687d3042691d58316a2"
-SRC_URI[sha256sum] = "a4778c69d26b6c569bcd6f64017cb66728839119851b3a072057386d5cf27fba"
+SRC_URI = "git://github.com/IntelRealSense/librealsense.git;branch=development"
+SRCREV = "7752bbe1b9dab586d7ada93eb2dfbb2632ba01d2"
 
 PR = "r0"
 
-S = "${WORKDIR}/${PN}-${PV}"
+S = "${WORKDIR}/git"
 
 FILES_${PN}-examples += "\
 	${EXAMPLES_DIR}/cpp-callback \
