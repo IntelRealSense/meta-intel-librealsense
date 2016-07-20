@@ -1,0 +1,34 @@
+From 08b84a78a6a568c8b22a433fa683a8e18b17acfa Mon Sep 17 00:00:00 2001
+From: Scott Ware <scott2.ware@gmail.com>
+Date: Wed, 20 Jul 2016 16:53:32 +0100
+Subject: [PATCH] Add option to skip tests
+
+---
+ sdk/CMakeLists.txt | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/sdk/CMakeLists.txt b/sdk/CMakeLists.txt
+index c8158aa..3609327 100644
+--- a/sdk/CMakeLists.txt
++++ b/sdk/CMakeLists.txt
+@@ -40,6 +40,8 @@ add_definitions(-Wno-unused-variable)
+ add_definitions(-Wno-reorder)
+ add_definitions(-Werror)
+ 
++option (run_tests "set run_tests to ON if build tests should be run, set to OFF to skip tests" ON)
++
+ 
+ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
+ 
+@@ -82,4 +84,7 @@ add_subdirectory(src/utilities)
+ add_subdirectory(src/core)
+ add_subdirectory(src/tools)
+ add_subdirectory(src/cameras)
+-add_subdirectory(test)
++
++if (run_tests)
++    add_subdirectory(test)
++endif ()
+-- 
+1.9.1
+
