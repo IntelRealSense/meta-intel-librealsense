@@ -1,0 +1,120 @@
+From 033b5f276127d9191034dd25faa414d72a5b1e80 Mon Sep 17 00:00:00 2001
+From: Scott Ware <scott.r.ware@intel.com>
+Date: Wed, 20 Jul 2016 12:34:37 +0100
+Subject: [PATCH] Don't explicitly define library type
+
+---
+ sdk/src/cameras/compression/CMakeLists.txt        | 2 +-
+ sdk/src/cameras/playback/CMakeLists.txt           | 2 +-
+ sdk/src/cameras/record/CMakeLists.txt             | 2 +-
+ sdk/src/core/image/CMakeLists.txt                 | 2 +-
+ sdk/src/core/projection/CMakeLists.txt            | 2 +-
+ sdk/src/utilities/fps/CMakeLists.txt              | 2 +-
+ sdk/src/utilities/logger/log_utils/CMakeLists.txt | 2 +-
+ sdk/src/utilities/logger/logger/CMakeLists.txt    | 2 +-
+ 8 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/sdk/src/cameras/compression/CMakeLists.txt b/sdk/src/cameras/compression/CMakeLists.txt
+index aa60067..fa4ad0b 100644
+--- a/sdk/src/cameras/compression/CMakeLists.txt
++++ b/sdk/src/cameras/compression/CMakeLists.txt
+@@ -9,7 +9,7 @@ set(SOURCE_FILES
+     compression_mock.cpp
+ )
+ 
+-add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})
++add_library(${PROJECT_NAME} ${SOURCE_FILES})
+ 
+ install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+ 
+diff --git a/sdk/src/cameras/playback/CMakeLists.txt b/sdk/src/cameras/playback/CMakeLists.txt
+index 81dec5d..d9c9778 100644
+--- a/sdk/src/cameras/playback/CMakeLists.txt
++++ b/sdk/src/cameras/playback/CMakeLists.txt
+@@ -44,7 +44,7 @@ set(SOURCE_FILES_FILE
+ )
+ 
+ #Building Library
+-add_library(${PROJECT_NAME} STATIC
++add_library(${PROJECT_NAME}
+     ${SOURCE_FILES_BASE}
+     ${SOURCE_FILES_LINUX}
+     ${SOURCE_FILES_WINDOWS}
+diff --git a/sdk/src/cameras/record/CMakeLists.txt b/sdk/src/cameras/record/CMakeLists.txt
+index 2f47690..dc70ae8 100644
+--- a/sdk/src/cameras/record/CMakeLists.txt
++++ b/sdk/src/cameras/record/CMakeLists.txt
+@@ -27,7 +27,7 @@ set(SOURCE_FILES
+ 
+ #------------------------------------------------------------------------------------
+ #Building Library
+-add_library(${PROJECT_NAME} STATIC
++add_library(${PROJECT_NAME}
+     ${SOURCE_FILES}
+ )
+ 
+diff --git a/sdk/src/core/image/CMakeLists.txt b/sdk/src/core/image/CMakeLists.txt
+index ffe8d85..966f68d 100755
+--- a/sdk/src/core/image/CMakeLists.txt
++++ b/sdk/src/core/image/CMakeLists.txt
+@@ -35,7 +35,7 @@ set(SOURCE_FILES
+ 
+ #------------------------------------------------------------------------------------
+ #Building Library
+-add_library(${PROJECT_NAME} STATIC
++add_library(${PROJECT_NAME}
+     ${SOURCE_FILES}
+ )
+ 
+diff --git a/sdk/src/core/projection/CMakeLists.txt b/sdk/src/core/projection/CMakeLists.txt
+index 6f9b887..8c6fe0c 100755
+--- a/sdk/src/core/projection/CMakeLists.txt
++++ b/sdk/src/core/projection/CMakeLists.txt
+@@ -28,7 +28,7 @@ include_directories(
+ 
+ #------------------------------------------------------------------------------------
+ #Building Library
+-add_library(${PROJECT_NAME} SHARED
++add_library(${PROJECT_NAME}
+     ${SOURCE_FILES}
+ )
+ 
+diff --git a/sdk/src/utilities/fps/CMakeLists.txt b/sdk/src/utilities/fps/CMakeLists.txt
+index 9651650..ea1b9f3 100644
+--- a/sdk/src/utilities/fps/CMakeLists.txt
++++ b/sdk/src/utilities/fps/CMakeLists.txt
+@@ -6,4 +6,4 @@ include_directories(
+     ${ROOT_DIR}/include/rs/core
+ )
+ 
+-add_library(${PROJECT_NAME} SHARED fps_utils.cpp)
++add_library(${PROJECT_NAME} fps_utils.cpp)
+diff --git a/sdk/src/utilities/logger/log_utils/CMakeLists.txt b/sdk/src/utilities/logger/log_utils/CMakeLists.txt
+index 030712d..cb8009c 100644
+--- a/sdk/src/utilities/logger/log_utils/CMakeLists.txt
++++ b/sdk/src/utilities/logger/log_utils/CMakeLists.txt
+@@ -4,7 +4,7 @@ project(rs_log_utils)
+ set(SOURCE_FILES log_utils.cpp
+                  ${ROOT_DIR}/include/rs/utils/log_utils.h)
+ 
+-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
++add_library(${PROJECT_NAME} ${SOURCE_FILES})
+ 
+ target_link_libraries(${PROJECT_NAME} dl)
+ 
+diff --git a/sdk/src/utilities/logger/logger/CMakeLists.txt b/sdk/src/utilities/logger/logger/CMakeLists.txt
+index 0c05fe0..d2e1fcd 100644
+--- a/sdk/src/utilities/logger/logger/CMakeLists.txt
++++ b/sdk/src/utilities/logger/logger/CMakeLists.txt
+@@ -3,7 +3,7 @@ project(rs_logger)
+ 
+ set(SOURCE_FILES logger.cpp xlevel.cpp)
+ 
+-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
++add_library(${PROJECT_NAME} ${SOURCE_FILES})
+ 
+ target_link_libraries(${PROJECT_NAME} log4cxx apr-1 aprutil-1 )
+ 
+-- 
+1.9.1
+
