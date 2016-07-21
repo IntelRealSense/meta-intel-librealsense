@@ -1,7 +1,7 @@
 From 08b84a78a6a568c8b22a433fa683a8e18b17acfa Mon Sep 17 00:00:00 2001
 From: Scott Ware <scott2.ware@gmail.com>
 Date: Wed, 20 Jul 2016 16:53:32 +0100
-Subject: [PATCH] Add option to skip tests
+Subject: [PATCH 1/2] Add option to skip tests
 
 ---
  sdk/CMakeLists.txt | 7 ++++++-
@@ -28,6 +28,49 @@ index c8158aa..3609327 100644
 +
 +if (run_tests)
 +    add_subdirectory(test)
++endif ()
+-- 
+1.9.1
+
+
+From ebf6002abdf72116de20574affd5cb8ffaa6b46f Mon Sep 17 00:00:00 2001
+From: Scott Ware <scott.r.ware@intel.com>
+Date: Thu, 21 Jul 2016 11:38:52 +0100
+Subject: [PATCH 2/2] Add option to enable logging support
+
+---
+ sdk/CMakeLists.txt                      | 2 +-
+ sdk/src/utilities/logger/CMakeLists.txt | 8 +++-----
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/sdk/CMakeLists.txt b/sdk/CMakeLists.txt
+index 3609327..4dd8777 100644
+--- a/sdk/CMakeLists.txt
++++ b/sdk/CMakeLists.txt
+@@ -41,7 +41,7 @@ add_definitions(-Wno-reorder)
+ add_definitions(-Werror)
+ 
+ option (run_tests "set run_tests to ON if build tests should be run, set to OFF to skip tests" ON)
+-
++option (enable_logging "set enable_logging to ON to enable logging support, set to OFF to disable logging" OFF)
+ 
+ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
+ 
+diff --git a/sdk/src/utilities/logger/CMakeLists.txt b/sdk/src/utilities/logger/CMakeLists.txt
+index 721bbad..d615f88 100644
+--- a/sdk/src/utilities/logger/CMakeLists.txt
++++ b/sdk/src/utilities/logger/CMakeLists.txt
+@@ -11,8 +11,6 @@ set(LOGGER_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+ 
+ add_subdirectory(log_utils)
+ 
+-# Uncomment this file if you want to enable logging
+-# Logging will be enabled only if log4cxx is installed on your system
+-#
+-# add_subdirectory(logger)
+-
++if (enable_logging)
++    add_subdirectory(logger)
 +endif ()
 -- 
 1.9.1
