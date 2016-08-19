@@ -24,7 +24,8 @@ EXTRA_OEMAKE = "\
 
 do_install () {
 	install -d "${D}${EXAMPLES_DIR}"
-	install -m 755 ${S}/bin/* ${D}${EXAMPLES_DIR}
+	install -m 755 ${S}/bin/c-* ${D}${EXAMPLES_DIR}
+	install -m 755 ${S}/bin/cpp-* ${D}${EXAMPLES_DIR}
 
 	install -d "${D}${libdir}"
 	oe_libinstall -C ${S}/lib/ -so ${PN} ${D}${libdir}
@@ -49,16 +50,16 @@ FILES_${PN}-examples += "\
 	${EXAMPLES_DIR}/cpp-tutorial-1-depth \
 "
 FILES_${PN}-graphical-examples += "\
-	${EXAMPLES_DIR}/c-tutorial-3-pointcloud \
 	${EXAMPLES_DIR}/c-tutorial-2-streams \
+	${EXAMPLES_DIR}/c-tutorial-3-pointcloud \
 	${EXAMPLES_DIR}/cpp-alignimages \
 	${EXAMPLES_DIR}/cpp-capture \
 	${EXAMPLES_DIR}/cpp-config-ui \
 	${EXAMPLES_DIR}/cpp-multicam \
 	${EXAMPLES_DIR}/cpp-pointcloud \
 	${EXAMPLES_DIR}/cpp-restart \
-	${EXAMPLES_DIR}/cpp-tutorial-3-pointcloud \
 	${EXAMPLES_DIR}/cpp-tutorial-2-streams \
+	${EXAMPLES_DIR}/cpp-tutorial-3-pointcloud \
 "
 
 # Configuration is not required
