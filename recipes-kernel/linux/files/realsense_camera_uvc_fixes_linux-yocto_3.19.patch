@@ -1,7 +1,7 @@
-From ea2e64ac324f725ed33e6b344aa1f455070403af Mon Sep 17 00:00:00 2001
+From 5e39995f1999023cd1c8280cd2df4c85acd5dcfd Mon Sep 17 00:00:00 2001
 From: Scott Ware <scott.r.ware@intel.com>
-Date: Wed, 11 Nov 2015 17:06:21 +0000
-Subject: [PATCH 2/3] UVC: Remove extra commit on resume()
+Date: Mon, 22 Aug 2016 14:41:13 +0100
+Subject: [PATCH] UVC: Remove extra commit on resume()
 
 ---
  drivers/media/usb/uvc/uvc_video.c | 6 +++---
