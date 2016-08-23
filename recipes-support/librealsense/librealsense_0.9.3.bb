@@ -1,7 +1,7 @@
 require librealsense.inc
 
 SRC_URI = "git://github.com/IntelRealSense/librealsense.git"
-SRCREV = "ac753ca9dfc7a357fc272f30052711ee7cc2ff18"
+SRCREV = "c35b9f79d175ad10b4e6b0b511c0d2e1642578b4"
 
 PR = "r0"
 
