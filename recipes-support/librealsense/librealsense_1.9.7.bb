@@ -1,7 +1,7 @@
 require librealsense.inc
 
 SRC_URI = "git://github.com/IntelRealSense/librealsense.git;branch=development"
-SRCREV = "6e9b2ac380bd7057d4797afe8e25abf13ef3a931"
+SRCREV = "6526c0efb90be1557b01fcf691a6d751d3608147"
 
 PR = "r0"
 
@@ -9,7 +9,6 @@ S = "${WORKDIR}/git"
 
 FILES_${PN}-examples += "\
 	${EXAMPLES_DIR}/cpp-callback \
-	${EXAMPLES_DIR}/cpp-mm-fw-update \
 	${EXAMPLES_DIR}/cpp-motion-module \
 "
 FILES_${PN}-graphical-examples += "\
