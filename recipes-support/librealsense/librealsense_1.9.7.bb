@@ -1,9 +1,9 @@
 require librealsense.inc
 
-SRC_URI = "git://github.com/IntelRealSense/librealsense.git;branch=development"
-SRCREV = "6526c0efb90be1557b01fcf691a6d751d3608147"
+SRC_URI = "git://github.com/IntelRealSense/librealsense.git;branch=master"
+SRCREV = "22155fdd2a4f20c2736285a753ce8b1059031e10"
 
-PR = "r0"
+PR = "r1"
 
 S = "${WORKDIR}/git"
 
