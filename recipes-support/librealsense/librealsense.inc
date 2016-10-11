@@ -22,7 +22,7 @@ EXTRA_OEMAKE = "\
     'CXXFLAGS=${CXXFLAGS} -std=c++11 -fPIC -pedantic -mssse3 -O3 -Wno-missing-field-initializers -Wno-switch -Wno-multichar -DRS_USE_$(BACKEND)_BACKEND $(LIBUSB_FLAGS)' \
 "
 
-do_install () {
+do_install() {
 	install -d "${D}${EXAMPLES_DIR}"
 	install -m 755 ${S}/bin/c-* ${D}${EXAMPLES_DIR}
 	install -m 755 ${S}/bin/cpp-* ${D}${EXAMPLES_DIR}
