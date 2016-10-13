@@ -8,10 +8,10 @@ PR = "r0"
 S = "${WORKDIR}/git"
 
 FILES_${PN}-examples += "\
-	${EXAMPLES_DIR}/cpp-callback \
-	${EXAMPLES_DIR}/cpp-motion-module \
+	${bindir}/cpp-callback \
+	${bindir}/cpp-motion-module \
 "
 FILES_${PN}-graphical-examples += "\
-	${EXAMPLES_DIR}/cpp-callback-2 \
-	${EXAMPLES_DIR}/cpp-stride \
+	${bindir}/cpp-callback-2 \
+	${bindir}/cpp-stride \
 "
