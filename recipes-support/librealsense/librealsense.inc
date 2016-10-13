@@ -64,3 +64,7 @@ FILES_${PN}-graphical-examples += "\
 
 # Configuration is not required
 do_configure[noexec] = "1"
+
+INSANE_SKIP_${PN} += "ldflags"
+INSANE_SKIP_${PN}-examples += "ldflags"
+INSANE_SKIP_${PN}-graphical-examples += "ldflags"
