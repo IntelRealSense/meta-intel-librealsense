@@ -1,6 +1,8 @@
 require librealsense.inc
 
-SRC_URI = "git://github.com/IntelRealSense/librealsense.git;branch=master"
+SRC_URI = "git://github.com/IntelRealSense/librealsense.git;branch=master \
+	   file://cmake_fixes.patch \
+"
 SRCREV = "74ff66da50210e6b9edc3157411bad95c209740f"
 
 PR = "r0"
