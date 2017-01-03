@@ -1,7 +1,6 @@
-SUMMARY = "GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events."
-
-AUTHOR = "Scott Ware"
-
+DESCRIPTION = "GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events."
+AUTHOR = "Camilla Berglund"
+HOMEPAGE = "http://www.glfw.org/"
 LICENSE = "Zlib | Libpng"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=352912f8ce21ff7d8b592a4edbe48f50"
 
