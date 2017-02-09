@@ -1,5 +1,8 @@
 Yocto Layer for librealsense
 ============================
+
+**Note** This repo is no longer supported; please use https://github.com/IntelRealSense/meta-intel-realsense going forward.  All changes from this repo are now fully incorporated into the new location.
+
 This layer adds the packages necessary for adding support for Intel® RealSense™ cameras via [librealsense](https://github.com/IntelRealSense/librealsense) to your Yocto distribution.
 
 ## Supported Branches
